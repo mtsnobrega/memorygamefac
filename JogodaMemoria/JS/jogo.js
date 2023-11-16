@@ -39,13 +39,11 @@ const fimdojogo = () => {
     if(desativada.length === 12){
         setTimeout( () => {
             alert("endgame");
-            /*window.location.href = "index2.html";*/
+            window.location.href = "final.html";
             clearInterval(this.arroz);
         }, 500 );
         
         
-    }else{
-
     }
 }
 
@@ -114,13 +112,13 @@ function cartas(foto){
     cartas.className = "cartas"
     frente.className = "a frente"
     atras.className = "a atras"
-    frente.style.backgroundImage = `url(ab/${foto}.jpg)`
+    frente.style.backgroundImage = `url(fotos/${foto}.jpg)`
     
     cartas.addEventListener("click", revelar)
    
    
     cartas.appendChild(frente);
-    cartas.appendChild(atras);
+    cartas.appendChild(atras);  
     cartas.setAttribute('data-fotos',foto);
      
     
@@ -132,5 +130,9 @@ function load(){
     {const card = cartas(foto) 
     grid.appendChild(card)
 });
+
+    const player = localStorage.getItem('player');
+    document.querySelector('.ab.nome').textContent = ("Jogador: "+player);
+
 }
 load()
